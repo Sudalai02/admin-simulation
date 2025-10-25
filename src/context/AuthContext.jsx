@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
       await signInWithPopup(auth, provider);
     } catch (err) {
       console.error("Login error:", err);
-      alert("Login failed. Check console for details.");
+      alert("Login failed. Retry please.");
     }
   };
 
