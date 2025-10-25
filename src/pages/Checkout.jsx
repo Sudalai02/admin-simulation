@@ -61,7 +61,7 @@ export default function Checkout() {
       )}
 
       <div className="mt-4">
-        <button onClick={confirmOrder} className="bg-green-600 text-white px-4 py-2 rounded">Confirm Order (No Payment)</button>
+        <button onClick={confirmOrder} className="bg-green-600 text-white px-4 py-2 rounded">Confirm Order</button>
       </div>
     </div>
   );
