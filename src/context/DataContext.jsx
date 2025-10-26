@@ -8,7 +8,6 @@ export function DataProvider({ children }) {
   const [addresses, setAddresses] = useState([]);
   const [orders, setOrders] = useState([]);
 
-  //Load from localStorage
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
     setWishlist(JSON.parse(localStorage.getItem("wishlist")) || []);
@@ -16,7 +15,6 @@ export function DataProvider({ children }) {
     setOrders(JSON.parse(localStorage.getItem("orders")) || []);
   }, []);
 
-  //Persist to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -34,18 +32,12 @@ export function DataProvider({ children }) {
   }, [orders]);
 
   return (
-    <DataContext.Provider
-      value={{
-        cart,
-        setCart,
-        wishlist,
-        setWishlist,
-        addresses,
-        setAddresses,
-        orders,
-        setOrders
-      }}
-    >
+    <DataContext.Provider value={{
+      cart, setCart,
+      wishlist, setWishlist,
+      addresses, setAddresses,
+      orders, setOrders
+    }}>
       {children}
     </DataContext.Provider>
   );

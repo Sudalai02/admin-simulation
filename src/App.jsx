@@ -1,11 +1,28 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Compoents/Navbar";
+import ProductList from "./pages/ProductList"
+import Dashboard from "./pages/Deshbord"
+import Cart from "./pages/Cart"
+import Checkout from "./pages/Checkout"
+import AdminOrders from "./pages/AdminOrders";
+import AdminProducts from "./pages/AdminProducts";
+import { useAuth } from "./context/AuthContext";
+/*
 import ProductList from "./pages/ProductList";
 import Dashboard from "./pages/Deshbord";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import AdminOrders from "./pages/AdminOrders";
+import AdminProducts from "./admin/AdminProducts";
+import AdminOrders from "./admin/AdminOrders";
+import { useAuth } from "./context/AuthContext";*/
+
+function AdminRoute({children}){
+  const { isAdmin, user}=useAuth();
+  if(!user) return <Navigate to="/" />;
+  if(!isAdmin) return <div className="p-6">you are not authorized to view this page.</div>
+  return children;
+}
 
 
 export default function App() {
@@ -18,7 +35,15 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/cart" element={<Cart />}/>
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/admin/orders" element={<AdminOrders />} />
+
+        <Route path="/admin/products" element={
+          <AdminRoute><AdminProducts /></AdminRoute>
+        }/>
+        <Route path="/admin/orders" element={
+          <AdminRoute><AdminOrders /></AdminRoute >
+        }/>
+
+        <Route path="*" element={<div className="p-6">404 Not found</div>}/>
       </Routes>
       </div>
     </div>

@@ -9,7 +9,11 @@ export default function AdminOrders() {
     setOrders(updated);
   };
 
-  if (!orders.length) return <div className="max-w-5xl mx-auto p-6"><p>No orders yet.</p></div>;
+  if (!orders.length)
+     return 
+     <div className="max-w-5xl mx-auto p-6">
+      <p>No orders yet.</p>
+     </div>;
 
   return (
     <div className="max-w-5xl mx-auto p-6">

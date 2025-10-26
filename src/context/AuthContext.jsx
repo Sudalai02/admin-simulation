@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, provider } from "../firebaseConfig";
+import { ADMIN_EMAIL } from "../adminConfig";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -7,12 +8,12 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const login = async () => {
+  const loginWithGoogle = async () => {
     try {
       await signInWithPopup(auth, provider);
     } catch (err) {
-      console.error("Login error:", err);
-      alert("Login failed. Retry please.");
+      console.error("Google login failed:", err);
+      alert("Google sign-in failed. Check console for details.");
     }
   };
 
@@ -20,19 +21,25 @@ export function AuthProvider({ children }) {
     try {
       await signOut(auth);
     } catch (err) {
-      console.error("Logout error:", err);
+      console.error("Logout failed:", err);
     }
   };
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u ? { uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL } : null);
+      if (u) {
+        setUser({ uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL });
+      } else {
+        setUser(null);
+      }
     });
     return () => unsub();
   }, []);
 
+  const isAdmin = user?.email === ADMIN_EMAIL;
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, loginWithGoogle, logout, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );
