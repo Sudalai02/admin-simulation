@@ -29,8 +29,7 @@ export default function Navbar() {
           {isAdmin && <Link to="/admin/orders" className="text-gray-600">Admin Orders</Link>}
 
           <Link to="/cart" className="text-gray-700">Cart ({cart.length})</Link>
-          <div className="text-gray-700">Wishlist</div>
-       {/*  <Link to="/wishlist" className="text-gray-700">Wishlist ({wishlist.length})</Link> */}
+          <Link to="/wishlist" className="text-gray-700">Wishlist ({wishlist.length})</Link> 
 
           {!user ? (
             <button

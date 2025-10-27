@@ -7,12 +7,12 @@ import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import AdminOrders from "./pages/AdminOrders";
 import AdminProducts from "./pages/AdminProducts";
+import Wishlist from "./pages/WishList";
 import { useAuth } from "./context/AuthContext";
 
 function AdminRoute({children}){
   const { isAdmin, user}=useAuth();
   if(!user) return <Navigate to="/" />;
-  if(!isAdmin) return <div className="p-6">you are not authorized to view this page.</div>
   return children;
 }
 
@@ -35,7 +35,8 @@ export default function App() {
           <AdminRoute><AdminOrders /></AdminRoute >
         }/>
 
-        <Route path="*" element={<div className="p-6">404 Not found</div>}/>
+        <Route path="/wishlist" element={
+          <AdminRoute><Wishlist /></AdminRoute>}/>
       </Routes>
       </div>
     </div>

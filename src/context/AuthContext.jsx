@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, provider } from "../firebaseConfig";
-import { ADMIN_EMAIL } from "../adminConfig";
+import { ADMIN_EMAILS } from "../adminConfig";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
     return () => unsub();
   }, []);
 
-  const isAdmin = user?.email === ADMIN_EMAIL;
+  const isAdmin = ADMIN_EMAILS.includes(user?.email);
 
   return (
     <AuthContext.Provider value={{ user, loginWithGoogle, logout, isAdmin }}>
