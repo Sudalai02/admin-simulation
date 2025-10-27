@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
       await signInWithPopup(auth, provider);
     } catch (err) {
       console.error("Google login failed:", err);
-      alert("Google sign-in failed. Check console for details.");
+      alert("Google sign-in failed. Please retry.");
     }
   };
 

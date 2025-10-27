@@ -8,14 +8,6 @@ import Checkout from "./pages/Checkout"
 import AdminOrders from "./pages/AdminOrders";
 import AdminProducts from "./pages/AdminProducts";
 import { useAuth } from "./context/AuthContext";
-/*
-import ProductList from "./pages/ProductList";
-import Dashboard from "./pages/Deshbord";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import AdminProducts from "./admin/AdminProducts";
-import AdminOrders from "./admin/AdminOrders";
-import { useAuth } from "./context/AuthContext";*/
 
 function AdminRoute({children}){
   const { isAdmin, user}=useAuth();

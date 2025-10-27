@@ -8,11 +8,11 @@
       "stock": 5
     },
     {
-      "id": "2",
-      "title": "Laptop",
-      "price": 899,
+      "name": "Phone",
       "category": "Electronics",
-      "stock": 0
+      "price": 899,
+      "stock": 1,
+      "id": "2"
     },
     {
       "id": "3",
