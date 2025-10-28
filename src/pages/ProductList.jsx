@@ -3,7 +3,7 @@ import ProductCard from "../Compoents/ProductCard";
 import SearchBar from "../Compoents/SearchBar";
 import SortMenu from "../Compoents/SortMenu"
 
-const API_URL = "http://localhost:3000/products";
+const API_URL = "https://admin-simulation.onrender.com/products";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:3000/products";
+const API_URL = "https://admin-simulation.onrender.com/products";
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
