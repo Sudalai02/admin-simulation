@@ -36,6 +36,6 @@ export default function AddressForm() {
       onChange={(e)=>setForm({...form, phone: e.target.value})}/>
       <button className="bg-blue-600 text-white px-4 py-2 rounded" 
       onClick={addAddress}>Save Address</button>
-    </div>
+    </div> 
   );
 }

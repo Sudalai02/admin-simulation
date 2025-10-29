@@ -34,7 +34,7 @@ export default function AdminOrders() {
               <option>Delivered</option>
             </select>
           </div>
-        </div>
+        </div> 
       ))}
     </div>
   );

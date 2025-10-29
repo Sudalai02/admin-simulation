@@ -34,7 +34,7 @@ export function DataProvider({ children }) {
   return (
     <DataContext.Provider value={{
       cart, setCart,
-      wishlist, setWishlist,
+      wishlist, setWishlist, 
       addresses, setAddresses,
       orders, setOrders
     }}>

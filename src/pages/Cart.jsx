@@ -5,7 +5,7 @@ import { useData } from "../context/DataContext";
 export default function Cart() {
   const { cart, setCart } = useData();
 
-  const removeItem = (id) => {
+  const removeItem = (id) => { 
     setCart(cart.filter(p => p.id !== id));
   };
 

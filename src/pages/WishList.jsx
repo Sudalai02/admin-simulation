@@ -10,8 +10,8 @@ export default function Wishlist() {
 
   const addToCart = (item) => {
     if (item.stock === 0) return alert("Out of stock");
-    setCart([...cart, item]);
-    removeFromWishlist(item.id);
+    setCart([...cart, item]); 
+    removeFromWishlist(item.id); 
   };
 
   if (wishlist.length === 0)

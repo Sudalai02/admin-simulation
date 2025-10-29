@@ -7,7 +7,7 @@ import AddressForm from "../Compoents/AddressFrom";
 export default function Checkout() {
   const { user } = useAuth();
   const { cart, setCart, addresses, orders, setOrders } = useData();
-  const [selectedAddressId, setSelectedAddressId] = useState(null);
+  const [selectedAddressId, setSelectedAddressId] = useState(null); 
   const navigate = useNavigate();
 
   useEffect(() => {

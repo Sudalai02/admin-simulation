@@ -10,7 +10,7 @@ export default function AdminProducts() {
   const fetchProducts = async () => {
     try {
       const res = await fetch(API_URL);
-      const data = await res.json();
+      const data = await res.json(); 
       setProducts(data);
     } catch (err) {
       console.error("Fetch products failed", err);

@@ -52,7 +52,7 @@ export default function Dashboard() {
                   {order.items.map(i => <li key={i.id}>{i.name} — ${i.price}</li>)}
                 </ul>
               </details>
-            </div>
+            </div> 
           </div>
         )) : <p>No orders yet.</p>}
       </section>

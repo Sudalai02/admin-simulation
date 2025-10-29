@@ -8,7 +8,7 @@ import Checkout from "./pages/Checkout"
 import AdminOrders from "./pages/AdminOrders";
 import AdminProducts from "./pages/AdminProducts";
 import Wishlist from "./pages/WishList";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/AuthContext"; 
 
 function AdminRoute({children}){
   const { isAdmin, user}=useAuth();
